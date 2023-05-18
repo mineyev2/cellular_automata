@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import './fonts.css';
 
@@ -18,6 +18,8 @@ function Grid({ rows, cols }) {
       .fill()
       .map(() => Array(cols).fill(0))
   );
+
+  let [isPlaying, setIsPlaying] = useState(false);
 
   function handleClick(row, col) {
     let newCellStates = cellStates.slice();
@@ -45,8 +47,32 @@ function Grid({ rows, cols }) {
     setCellStates(newCellStates);
   }
 
+  function handlePlayAnimationClick() {
+    setIsPlaying(true);
+  }
+
+  function handlePauseAnimationClick() {
+    setIsPlaying(false);
+  }
+
+  useEffect(() => {
+    let animationTimer;
+
+    if (isPlaying) {
+      animationTimer = setInterval(() => {
+        // handleNextFrameClick();
+        let newCellStates = gameOfLifeFrame(cellStates);
+        setCellStates(newCellStates);
+      }, 250);
+    }
+
+    return () => {
+      clearInterval(animationTimer);
+    };
+  }, [isPlaying, cellStates]);
+
   function determineColor(row, col) {
-    if (cellStates[row][col] == false) {
+    if (cellStates[row][col] === 0) {
       return getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
     } else {
       return getComputedStyle(document.documentElement).getPropertyValue('--cell-fill-color').trim();
@@ -74,6 +100,8 @@ function Grid({ rows, cols }) {
       {grid_component}
       <button onClick={() => handleNextFrameClick()}>Click to go to next frame</button>
       <button onClick={() => handleClearGridClick()}>Click to clear the grid</button>
+      <button onClick={() => handlePlayAnimationClick()}>Click here to start the animation</button>
+      <button onClick={() => handlePauseAnimationClick()}>Click here to pause the animation</button>
     </div>
   );
 
@@ -84,7 +112,10 @@ function App() {
     <div className="App">
       <h1 className="title">The Game of Life</h1>
       <div className='grid'>
-        <Grid rows={15} cols={30}/>
+        <Grid rows={30} cols={30}/>
+      </div>
+      <div>
+        <button></button>
       </div>
     </div>
   );
