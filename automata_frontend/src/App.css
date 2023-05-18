@@ -1,28 +1,59 @@
+:root {
+  --primary-color: #18122B;
+  --cell-border-color: #7d70a6;
+  --cell-fill-color: #635985;
+  --title-color: #F2F7A1;
+}
+
 body {
-  background-color: #011611; /* Set the background color to gray */
+  background-color: var(--primary-color); /* Set the background color to gray */
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: auto;
+}
+
+.title {
+  position: absolute;
+  font-family: "Source Code Pro";
+  font-size: 3rem;
+  color: var(--title-color);
+  text-align: center;
+  top: 0vh;
+  /* see if I can find a better way to center instead of margin-top later */
+  margin-top: 50px;
 }
 
 .grid {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
 }
 
 .App-square {
-  /* background: #0d0d64; */
-  border: 2px solid gray;
+  /* background: var(--cell-fill-color); */ 
+  border: 1px solid var(--cell-border-color);
+  border-radius: 8px;
   float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
   height: 34px;
-  margin-right: -2px;
-  margin-top: -2px;
+  margin-right: -1px;
+  margin-top: -1px;
   padding: 0;
   text-align: center;
   width: 34px;
@@ -33,3 +64,13 @@ body {
   content: '';
   display: table;
 }
+
+.play-button {
+  background: url('./imgs/Play.png');
+  border: none;
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  background-position: center;
+}
+

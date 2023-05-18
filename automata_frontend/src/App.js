@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import './App.css';
+import './fonts.css';
+
+import PauseImg from './imgs/Pause.png';
+// import PlayImg from './imgs/Play.png';
 
 import { gameOfLifeFrame } from './cellular_automata';
 
@@ -43,9 +47,9 @@ function Grid({ rows, cols }) {
 
   function determineColor(row, col) {
     if (cellStates[row][col] == false) {
-      return '#011611';
+      return getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
     } else {
-      return '#cbe58e';
+      return getComputedStyle(document.documentElement).getPropertyValue('--cell-fill-color').trim();
     }
   }
   
@@ -65,11 +69,10 @@ function Grid({ rows, cols }) {
     );
   }
 
-  // gameOfLifeFrame(cellStates);
   return (
     <div>
       {grid_component}
-      <button onClick={() => handleNextFrameClick()}>Click to see next frame</button>
+      <button onClick={() => handleNextFrameClick()}>Click to go to next frame</button>
       <button onClick={() => handleClearGridClick()}>Click to clear the grid</button>
     </div>
   );
@@ -79,6 +82,7 @@ function Grid({ rows, cols }) {
 function App() {
   return (
     <div className="App">
+      <h1 className="title">The Game of Life</h1>
       <div className='grid'>
         <Grid rows={15} cols={30}/>
       </div>

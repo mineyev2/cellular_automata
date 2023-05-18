@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('./fonts/SourceCodePro-ExtraLight.ttf') format('truetype'); /* Replace fontfile.ttf with the actual font file name and format */
+    /* Add additional src lines for other font formats if available */
+  }
+  
+  /* Additional font-face rules for other font families if needed */
+  
