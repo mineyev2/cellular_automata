@@ -1,15 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import './fonts.css';
 
-import PauseImg from './imgs/Pause.png';
-// import PlayImg from './imgs/Play.png';
-
 import { gameOfLifeFrame } from './cellular_automata';
 
-function Cell({ color, onCellClick }) {
-
-  return <div className='App-square' onClick={onCellClick} style={{backgroundColor: color}}></div>;
+function Cell({ size, color, onCellClick }) {
+  let wh = size.toString() + 'vh';
+  let border_rad = (size / 6).toString() + 'vh';
+  return <div className='App-square' onClick={onCellClick} style={{backgroundColor: color, width: wh, height: wh, borderRadius: border_rad}}></div>;
 }
 
 function Grid({ rows, cols }) {
@@ -18,6 +16,16 @@ function Grid({ rows, cols }) {
       .fill()
       .map(() => Array(cols).fill(0))
   );
+
+  let [isPlaying, setIsPlaying] = useState(false);
+  
+  // ratio of how much the height of the website the grid uses
+  let grid_space = 0.65;
+  let max = Math.max(rows, cols);
+  // percent of the screen each cell is:
+  let cellSize = grid_space * 1 / max * 100;
+
+  
 
   function handleClick(row, col) {
     let newCellStates = cellStates.slice();
@@ -45,8 +53,33 @@ function Grid({ rows, cols }) {
     setCellStates(newCellStates);
   }
 
+  function handlePlayAnimationClick() {
+    setIsPlaying(true);
+  }
+
+  function handlePauseAnimationClick() {
+    setIsPlaying(false);
+  }
+
+  useEffect(() => {
+    let animationTimer;
+
+    if (isPlaying) {
+      animationTimer = setInterval(() => {
+        // handleNextFrameClick();
+        // update so that I can just call handleNextFrameClick() so that I don't have to be remaking 
+        let newCellStates = gameOfLifeFrame(cellStates);
+        setCellStates(newCellStates);
+      }, 250);
+    }
+
+    return () => {
+      clearInterval(animationTimer);
+    };
+  }, [isPlaying, cellStates]);
+
   function determineColor(row, col) {
-    if (cellStates[row][col] == false) {
+    if (cellStates[row][col] === 0) {
       return getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
     } else {
       return getComputedStyle(document.documentElement).getPropertyValue('--cell-fill-color').trim();
@@ -59,7 +92,7 @@ function Grid({ rows, cols }) {
     const row_component = [];
 
     for (let j = 0; j < cols; j++) {
-      row_component.push(<Cell color={determineColor(i, j)} onCellClick={() => handleClick(i, j)}/>);
+      row_component.push(<Cell size={cellSize} color={determineColor(i, j)} onCellClick={() => handleClick(i, j)}/>);
     }
 
     grid_component.push(
@@ -74,6 +107,8 @@ function Grid({ rows, cols }) {
       {grid_component}
       <button onClick={() => handleNextFrameClick()}>Click to go to next frame</button>
       <button onClick={() => handleClearGridClick()}>Click to clear the grid</button>
+      <button onClick={() => handlePlayAnimationClick()}>Start animation</button>
+      <button onClick={() => handlePauseAnimationClick()}>Pause animation</button>
     </div>
   );
 
@@ -84,7 +119,7 @@ function App() {
     <div className="App">
       <h1 className="title">The Game of Life</h1>
       <div className='grid'>
-        <Grid rows={15} cols={30}/>
+        <Grid rows={40} cols={40}/>
       </div>
     </div>
   );
