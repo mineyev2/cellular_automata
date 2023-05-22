@@ -1,0 +1,16 @@
+/*--------START OF VARIABLES--------*/
+:root {
+    --primary-color: #18122B;
+    --cell-border-color: #7d70a6;
+    --cell-fill-color: #635985;
+    --title-color: #F2F7A1;
+  }
+/*--------END OF VARIABLES--------*/
+
+
+
+.board-row:after {
+    clear: both;
+    content: '';
+    display: table;
+  }

@@ -1,14 +1,19 @@
+/*--------START OF VARIABLES--------*/
 :root {
   --primary-color: #18122B;
   --cell-border-color: #7d70a6;
   --cell-fill-color: #635985;
   --title-color: #F2F7A1;
 }
+/*--------END OF VARIABLES--------*/
 
+/*--------OVERALL--------*/
 body {
   background-color: var(--primary-color); /* Set the background color to gray */
 }
+/*--------OVERALL--------*/
 
+/*--------START OF APPLICATION--------*/
 .App {
   display: flex;
   flex-direction: column;
@@ -23,26 +28,6 @@ body {
   justify-content: center;
   height: auto;
   width: auto;
-}
-
-.gameSettings {
-  border: 2px solid var(--title-color);
-}
-
-.gameSettings-text {
-  font-family: "Source Code Pro";
-  font-size: 1rem;
-  color: var(--title-color);
-  text-align: center;
-  top: 0vh;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.input-container {
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .title {
@@ -63,34 +48,80 @@ body {
   height: auto;
 }
 
-.App-square {
-  /* background: var(--cell-fill-color); */ 
+/*--------START OF SETTINGS SECTION--------*/
+.settings {
+  width: auto;
+  display: flex;
   border: 1px solid var(--cell-border-color);
-  border-radius: 8px;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-components-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-input-container {
+  /* border: 1px solid var(--cell-border-color); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* font-family: "Source Code Pro"; */
+  font-size: 1.2rem;
+  color: white;
   text-align: center;
-  width: 34px;
+  top: 0vh;
+
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
+.settings-input {
+  width: 120px;
+  height: 30px;
+  box-sizing: border-box;
 }
 
-.play-button {
-  background: url('./imgs/Play.png');
-  border: none;
+.submit-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.animation-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.animation-button {
+  width: 125px;
   height: 50px;
-  width: 50px;
-  background-size: cover;
-  background-position: center;
+  background-color: var(--cell-fill-color);
+  border: 1px solid var(--cell-border-color);
+  color: white;
+  font-size: 1rem;
+  /* make padding a variable? */
+  /* padding: 15px 32px; */
+  text-align: center;
+  text-decoration: none;
 }
 
+.animation-button:hover {
+  background-color: var(--cell-border-color); /* Green */
+  color: white;
+}
+
+/*--------END OF SETTINGS SECTION--------*/
+/*--------END OF APPLICATION--------*/

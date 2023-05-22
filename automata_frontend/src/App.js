@@ -2,31 +2,151 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import './fonts.css';
 
+import { gameOfLifeFrame } from './cellular_automata';
+
 import Grid from './Grid';
 
 function App() {
+  // grid variables:
+  let [numRows, setNumRow] = useState(8);
+  let [numCols, setNumCols] = useState(8);
+  let [speed, setSpeed] = useState(4);
+  let [isPlaying, setIsPlaying] = useState(false);
+  let [animationButtonText, setAnimationButtonText] = useState("Play");
+
+  // form input values:
+  const [formData, setFormData] = useState({
+    speed: '',
+    width: '',
+    height: ''
+  });
+
+  let [cellStates, setCellStates] = useState(
+    Array(numRows)
+      .fill()
+      .map(() => Array(numCols).fill(0))
+  );
+
+  function handleCellClick(row, col) {
+    let newCellStates = cellStates.slice();
+    
+    if (newCellStates[row][col] === 0) {
+      newCellStates[row][col] = 1;
+    } else {
+      newCellStates[row][col] = 0;
+    }
+
+    setCellStates(newCellStates);
+  }
+
+  function determineColor(row, col) {
+    if (cellStates[row][col] === 0) {
+      return getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+    } else {
+      return getComputedStyle(document.documentElement).getPropertyValue('--cell-fill-color').trim();
+    }
+  }
+
+  function handleNextFrameClick() {
+    let newCellStates = gameOfLifeFrame(cellStates);
+    setCellStates(newCellStates);
+  }
+
+  function handleClearGridClick() {
+    let newCellStates = Array(numRows)
+      .fill()
+      .map(() => Array(numRows).fill(0));
+
+    setCellStates(newCellStates);
+  }
+
+  function handleAnimationButtonClick() {
+    if (isPlaying) {
+      setAnimationButtonText("Play");
+      setIsPlaying(false);
+
+    } else {
+      setAnimationButtonText("Pause");
+      setIsPlaying(true);
+
+    }
+  }
+
+  useEffect(() => {
+    let animationTimer;
+
+    if (isPlaying) {
+      animationTimer = setInterval(() => {
+        let newCellStates = gameOfLifeFrame(cellStates);
+        setCellStates(newCellStates);
+      }, Math.round(1000 * (1 / speed)));
+    }
+
+    return () => {
+      clearInterval(animationTimer);
+    };
+  }, [isPlaying, cellStates, speed]);
+
+  const handleGameSettingsSubmit = (event) => {
+    event.preventDefault();
+    const newSpeed = parseInt(formData.speed);
+    const newNumRows = parseInt(formData.height);
+    const newNumCols = parseInt(formData.width);
+    setSpeed(newSpeed);
+    setNumRow(newNumRows);
+    setNumCols(newNumCols);
+
+    // When I use numRows instead of newNumRows it doesn't get updated because the value gets updated outside the function I guess
+    setCellStates(
+      Array(newNumRows)
+        .fill()
+        .map(() => Array(newNumCols).fill(0))
+    );
+  }
+
+  const handleGameSettingsChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   return (
     <div className="App">
       <h1 className="title">The Game of Life</h1>
       <div className="program">
         <div className='grid'>
-          <Grid rows={40} cols={40}/>
+          <Grid rows={numRows} cols={numCols} determineColor={determineColor} onCellClick={handleCellClick}/>
         </div>
-        <div className='gameSettings'>
-          <div className='input-container'>
-            <p className='gameSettings-text'>Enter the speed of the game:</p>
-            <input type="text" name="speed" placeholder="Range: 1-100fps"/>
+        <div className='settings'>
+          <form onSubmit={handleGameSettingsSubmit}>
+            <div className="form-components-container">
+              <div className='settings-input-container'>
+                <p className='settings-text'>Enter game speed:</p>
+                <input className='settings-input' type="number" min={1} max={100} value={formData.speed} name="speed" placeholder="Range: 1-100fps" onChange={handleGameSettingsChange}/>
+              </div>
+              <div className='settings-input-container'>
+                <p className='settings-text'>Cells per row:</p>
+                <input className='settings-input' type="number" min={1} max={100} name="width" placeholder="Range: 1-200" onChange={handleGameSettingsChange}/>
+              </div>
+              <div className='settings-input-container'>
+                <p className='settings-text'>Cells per column:</p>
+                <input className='settings-input' type="number" min={1} max={100} name="height" placeholder="Range: 1-200" onChange={handleGameSettingsChange}/>
+              </div>
+              <div className='submit-button-container'>
+                <button className='animation-button' type="submit">Submit Values</button>
+              </div>
+            </div>
+
+          </form>
+
+          <div className='animation-buttons-container'>
+            <button className='animation-button' onClick={() => handleNextFrameClick()}>Next frame</button>
+            <button className='animation-button' onClick={() => handleClearGridClick()}>Clear Grid</button>
+            <button className='animation-button' onClick={() => handleAnimationButtonClick()}>{animationButtonText}</button>
           </div>
-          <div className='input-container'>
-            <p className='gameSettings-text'>Number of cells in each row:</p>
-            <input type="text" name="width" placeholder="Range: 1-200"/>
-          </div>
-          <div className='input-container'>
-            <p className='gameSettings-text'>Number of cells in each column:</p>
-            <input type="text" name="height" placeholder="Range: 1-200"/>
-          </div>
-         
         </div>
       </div>
 
