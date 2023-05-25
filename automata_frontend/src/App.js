@@ -49,7 +49,7 @@ function App() {
     if (cellStates[row][col] === 0) {
       return getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
     } else {
-      return getComputedStyle(document.documentElement).getPropertyValue('--title-color').trim();
+      return getComputedStyle(document.documentElement).getPropertyValue('--random4').trim();
     }
   }
 
@@ -165,16 +165,16 @@ function App() {
           <form onSubmit={handleGameSettingsSubmit}>
             <div className="form-components-container">
               <div className='settings-input-container'>
-                <p className='settings-text'>Enter game speed:</p>
-                <input className='settings-input' type="number" min={1} max={100} value={formData.speed} name="speed" placeholder="Range: 1-100fps" onChange={handleGameSettingsChange}/>
+                <p className='settings-text'>Enter speed:</p>
+                <input className='settings-input' type="number" min={1} max={100} value={formData.speed} name="speed" placeholder="Range: 1-100" onChange={handleGameSettingsChange}/>
               </div>
               <div className='settings-input-container'>
                 <p className='settings-text'>Cells per row:</p>
-                <input className='settings-input' type="number" min={1} max={100} name="width" placeholder="Range: 1-200" onChange={handleGameSettingsChange}/>
+                <input className='settings-input' type="number" min={1} max={100} name="width" placeholder="Range: 1-100" onChange={handleGameSettingsChange}/>
               </div>
               <div className='settings-input-container'>
                 <p className='settings-text'>Cells per column:</p>
-                <input className='settings-input' type="number" min={1} max={100} name="height" placeholder="Range: 1-200" onChange={handleGameSettingsChange}/>
+                <input className='settings-input' type="number" min={1} max={100} name="height" placeholder="Range: 1-100" onChange={handleGameSettingsChange}/>
               </div>
               <div className='submit-button-container'>
                 <button className='submit-button' type="submit">Submit Values</button>

@@ -4,10 +4,18 @@ import './Popup.css';
 
 export default () => (
   <Popup
-    contentStyle={{width: '40%', height: '90%', overflowY: 'auto', overflowX: 'hidden'}}
+    contentStyle={{
+      width: '40%',
+      height: 'auto',
+      maxHeight: '90%',
+      overflowX: 'hidden',
+      overflowY: 'auto',
+      scrollBehavior: "smooth",
+      scrollPaddingTop: '0px',
+    }}
     trigger={
       <button className="popup-button">
-        <p className='rotated-text'>Information</p>
+        <p className='rotated-text'>Guide</p>
       </button>
     }
     modal
@@ -15,18 +23,16 @@ export default () => (
   >
     {close => (
       <div className="modal">
-        <button className="close" onClick={close}>
-          &times;
-        </button>
         <h1 className="header">Information Page</h1>
         <div className="content">
-          <h2>Quick Start</h2>
+          <h2 className='subsection'>Quick Start</h2>
           <p className='tab-indent'>
             If you're impatient like me or just want to play around, I suggest you press the "Presets" button right below the "Information" button.
-            Here, you can select different shapes and observe how they change through time by pressing the "Play" button on the bottom right.
+            Here, you can select different cellular automata and observe how they change through time.
+            Simply select an option inside "Presets", and press "Play" on the bottom right of the website.
             If you ever want to learn how this game actually works, you can always come back and read the nitty-gritty of the implementation below.
           </p>
-          <h2>Introduction</h2>
+          <h2 className='subsection'>Introduction</h2>
           <p className='tab-indent'>
             Conway's Game of Life is a cellular automaton devised by mathematician John Horton Conway.
             It consists of a grid of squares, which we call cells, and each of them can be in one of two states: alive or dead.
@@ -36,7 +42,7 @@ export default () => (
             You can see this by clicking the "Next Frame" button on the bottom right.
             Alternatively, clicking "Play" will automatically run frames until the same button is clicked again to "Pause".
           </p>
-          <h2>Rules of the Game</h2>
+          <h2 className='subsection'>Rules of the Game</h2>
           <p className='tab-indent'>
             The rules determine the state of each cell in the next generation based on its current state and the states of its 8 surrounding cells, called neighbors.
             The rules are simple but can give rise to complex and fascinating patterns. They are described as follows:
@@ -47,7 +53,7 @@ export default () => (
               <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
             </ol>
           </p>
-          <h2>Settings</h2>
+          <h2 className='subsection'>Settings</h2>
           <p className='tab-indent'>
             To give you the freedom to play around with the website, I have created some settings that you can play with to change the behavior of the game.
             You can see the located to the right of the grid. The functions are as follows:

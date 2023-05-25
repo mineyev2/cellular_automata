@@ -8,6 +8,13 @@
     --submit-button-color: #C6EBBE;
 
     --random4: #94B9AF;
+
+    --paper-color: #E0C9A6;
+
+    --button1: #464655;
+
+    --close-button: #aa906b;
+    --close-button-hover: #877254;
   }
 /*--------END OF VARIABLES--------*/
 
@@ -27,12 +34,12 @@
 
     border-radius: 0px 10px 10px 0px;
 
-    width: 40px;
-    height: 100px;
+    width: 30px;
+    height: 80px;
     background-color: var(--primary-color);
     border: 1px solid var(--cell-border-color);
     color: white;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
     text-decoration: none;
 }
@@ -42,43 +49,49 @@
     color: white;
 }
 
-/*---------- HEADER INFORMATION ----------*/
+/*---------- MODAL INFORMATION ----------*/
 .modal {
     width:100%;
-    min-height: 100%;
     height: auto;
     text-align:justify;
-    font-size: 18px;
-    background-color: var(--random4);
+    font-size: 20px;
+    background-color: #DBBE9C;
     border: none;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 .modal > .header {
     color: black;
     width: 100%;
     text-align: center;
     padding-top: 20px;
+    padding-bottom: 20px;
     margin: 0;
-
 }
+
+.subsection {
+    text-align: left;
+}
+
 .modal > .content {
-    padding-left: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: left;
+    align-items: center;
     color: black;
-    width: 100%;
+    width: auto;
 }
-.modal > .content > .tab-indent {
-    padding-right: 80px;
+
+.tab-indent {
     text-indent: 40px;
     line-height: 1.5;
     text-align: left;
 }
 .modal > .actions {
     width: 100%;
-    padding: 10px 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin: auto;
     text-align: center;
 }
@@ -97,8 +110,8 @@
 }
 
 .action-button {
-    background-color: var(--cell-fill-color);
-    border: 1px solid var(--cell-border-color);
+    background-color: var(--close-button);
+    border: 1px solid var(--close-button);
     color: white;
     /* make padding a variable? */
     /* padding: 15px 32px; */
@@ -107,8 +120,9 @@
 }
 
 .action-button:hover {
-background-color: var(--cell-border-color); /* Green */
-color: white;
+    background-color: var(--close-button-hover); /* Green */
+    border: 1px solid var(--close-button-hover);
+    color: white;
 }
 
 .popup-content {
@@ -121,13 +135,21 @@ color: white;
     color: rgb(255, 255, 255);
 }
 [role='tooltip'].popup-content {
-width: 200px;
-box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
 
 .popup-overlay {
-background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
-[data-popup='tooltip'].popup-overlay {
-background: transparent;
+    [data-popup='tooltip'].popup-overlay {
+    background: transparent;
+}
+
+.popup-divider {
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

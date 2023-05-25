@@ -1,16 +1,18 @@
 .text-wrap-container {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
   }
   
   .text-wrap-image {
     float: left;
-    width: 200px;
-    margin-left: 20px;
-    margin-right: 10px;
+    width: 150px;
+    margin-right: 40px;
   }
   
   .text-wrap-text {
     margin: 0;
+    text-align: left;
   }
   

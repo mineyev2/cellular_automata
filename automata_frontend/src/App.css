@@ -13,6 +13,10 @@
   --random2: #F26430;
 
   --random4: #94B9AF;
+  --random5: #CCA43B;
+  --random6: #800E13;
+
+  --random7: #db8640;
 }
 /*--------END OF VARIABLES--------*/
 
@@ -33,8 +37,8 @@ body {
 
 .title {
   font-family: "Source Code Pro";
-  font-size: 3rem;
-  color: rgb(174, 174, 174);
+  font-size: 4rem;
+  color: white;
   text-align: center;
   top: 0vh;
   margin-top: 0px;
@@ -56,6 +60,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  margin-top: -40px;
 }
 
 .icon-button {
@@ -104,6 +110,7 @@ body {
 .form-components-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .settings-input-container {
@@ -172,18 +179,19 @@ body {
 .submit-button {
   width: 125px;
   height: 50px;
-  background-color: var(--cell-fill-color);
-  border: 1px solid var(--cell-border-color);
-  color: white;
+  background-color: var(--random7);
+  border: 1px dashed var(--random7);
+  color: black;
   font-size: 1rem;
   /* make padding a variable? */
   /* padding: 15px 32px; */
+  border-radius: 5px;
   text-align: center;
   text-decoration: none;
 }
 
 .submit-button:hover {
-  background-color: var(--cell-border-color); /* Green */
+  background-color: rgb(149, 84, 84); /* Green */
   color: white;
 }
 

@@ -5,7 +5,7 @@ import './About.css';
 
 export default () => (
   <Popup
-    contentStyle={{width: '40%', height: '90%', overflowY: 'auto', overflowX: 'hidden'}}
+    contentStyle={{width: '40%', height: 'auto', maxHeight: '90%', overflowY: 'auto', overflowX: 'hidden'}}
     trigger={
       <button className="popup-button">
         <p className='rotated-text'>About</p>
@@ -16,18 +16,12 @@ export default () => (
   >
     {close => (
       <div className="modal">
-        <button className="close" onClick={close}>
-          &times;
-        </button>
-        <div className="header">About Me</div>
+        <h1 className="header">About Me</h1>
         <div className="content">
-            <h2>About Me</h2>
             <div className='text-wrap-container'>
                 <img className='text-wrap-image' src={require("./imgs/pic1.jpg")} alt="Description of the image"></img>
-                <p className='text-wrap-text'>
+                <p className='tab-indent'>
                     My name is Roman Mineyev, an undergraduate majoring in Math & Computer Science at the University of Illinois at Urbana-Champaign as of May, 2023.
-
-
                 </p>
             </div>
 
