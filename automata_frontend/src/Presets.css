@@ -1,0 +1,22 @@
+/*--------START OF VARIABLES--------*/
+:root {
+    --primary-color: #18122B;
+    --cell-border-color: #7d70a6;
+    --cell-fill-color: #635985;
+    --title-color: #F2F7A1;
+  }
+/*--------END OF VARIABLES--------*/
+
+.presets-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    color: white;
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.presets-container > .tab-indent {
+    text-indent: 40px;
+}

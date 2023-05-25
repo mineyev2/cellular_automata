@@ -1,9 +1,18 @@
 /*--------START OF VARIABLES--------*/
 :root {
   --primary-color: #18122B;
+  --secondary-color: #635985;
+  --third-color: #7d70a6;
+  
   --cell-border-color: #7d70a6;
-  --cell-fill-color: #635985;
+  --cell-fill-color: #7d70a6;
   --title-color: #F2F7A1;
+  --submit-button-color: #C6EBBE;
+
+  --random1: #C6EBBE;
+  --random2: #F26430;
+
+  --random4: #94B9AF;
 }
 /*--------END OF VARIABLES--------*/
 
@@ -22,6 +31,17 @@ body {
   height: 100vh;
 }
 
+.title {
+  font-family: "Source Code Pro";
+  font-size: 3rem;
+  color: rgb(174, 174, 174);
+  text-align: center;
+  top: 0vh;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* see if I can find a better way to center instead of margin-top later */
+}
+
 .program {
   display:flex;
   flex-direction: row;
@@ -30,36 +50,61 @@ body {
   width: auto;
 }
 
-.title {
-  font-family: "Source Code Pro";
-  font-size: 3rem;
-  color: var(--title-color);
-  text-align: center;
-  top: 0vh;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  /* see if I can find a better way to center instead of margin-top later */
+/*--------START OF ICONS SECTION--------*/
+.icon-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-top: 40px;
 }
+
+.icon-button {
+  width: 125px;
+  height: 50px;
+  background-color: var(--cell-fill-color);
+  border: 1px solid var(--cell-border-color);
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.icon-button:hover {
+  background-color: var(--cell-border-color); /* Green */
+  color: white;
+}
+
+/*--------END OF ICONS SECTION--------*/
 
 .grid {
   display: flex;
   justify-content: center;
   align-items: center;
   height: auto;
+
+  padding: 20px;
+  border: 2px solid var(--random4);
+  border-radius: 1%;
 }
 
 /*--------START OF SETTINGS SECTION--------*/
+
 .settings {
-  width: auto;
+  width: 25%;
   display: flex;
-  border: 1px solid var(--cell-border-color);
+  border: 2px solid var(--random4);
+  border-radius: 2.5%/1%;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 50px;
+  overflow: hidden;
 }
 
 .form-components-container {
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--cell-border-color);
 }
 
 .settings-input-container {
@@ -75,19 +120,21 @@ body {
   flex-direction: row;
   justify-content: space-between;
   /* font-family: "Source Code Pro"; */
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: white;
   text-align: center;
   top: 0vh;
 
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .settings-input {
   width: 120px;
   height: 30px;
   box-sizing: border-box;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .submit-button-container {
@@ -95,8 +142,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .animation-buttons-container {
@@ -119,6 +166,24 @@ body {
 }
 
 .animation-button:hover {
+  background-color: var(--cell-border-color); /* Green */
+  color: white;
+}
+
+.submit-button {
+  width: 125px;
+  height: 50px;
+  background-color: var(--cell-fill-color);
+  border: 1px solid var(--cell-border-color);
+  color: white;
+  font-size: 1rem;
+  /* make padding a variable? */
+  /* padding: 15px 32px; */
+  text-align: center;
+  text-decoration: none;
+}
+
+.submit-button:hover {
   background-color: var(--cell-border-color); /* Green */
   color: white;
 }

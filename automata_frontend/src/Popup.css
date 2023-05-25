@@ -1,0 +1,123 @@
+/*--------START OF VARIABLES--------*/
+:root {
+    --primary-color: #18122B;
+    --cell-border-color: #7d70a6;
+    --cell-fill-color: #635985;
+    --title-color: #F2F7A1;
+
+    --submit-button-color: #C6EBBE;
+  }
+/*--------END OF VARIABLES--------*/
+
+.rotated-text {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+/* Trigger Start */
+.information-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0px 10px 10px 0px;
+
+    width: 40px;
+    height: 100px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--cell-border-color);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+  
+.information-button:hover {
+    background-color: var(--cell-border-color); /* Green */
+    color: white;
+}
+
+/*---------- HEADER INFORMATION ----------*/
+.modal {
+    width:100%;
+    text-align:justify;
+    font-size: 18px;
+    background-color: var(--cell-fill-color);
+
+    font-family: "Times New Roman", Times, serif;
+}
+.modal > .header {
+    color: var(--title-color);
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 24px;
+    text-align: center;
+    padding: 5px;
+
+}
+.modal > .content {
+    color: white;
+    width: 100%;
+    padding: 10px 5px;
+}
+.modal > .content > .tab-indent {
+    text-indent: 40px;
+}
+.modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+}
+.modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+}
+
+.action-button {
+    background-color: var(--cell-fill-color);
+    border: 1px solid var(--cell-border-color);
+    color: white;
+    /* make padding a variable? */
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+}
+
+.action-button:hover {
+background-color: var(--cell-border-color); /* Green */
+color: white;
+}
+
+.popup-content {
+    margin: auto;
+    background: rgb(255, 255, 255);
+    width: 50%;
+    padding: 5px;
+}
+.popup-arrow {
+    color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+width: 200px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+background: transparent;
+}

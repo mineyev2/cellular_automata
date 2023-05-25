@@ -2,9 +2,15 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import './fonts.css';
 
+import Information from './Information';
+
 import { gameOfLifeFrame } from './cellular_automata';
 
 import Grid from './Grid';
+import Presets from './Presets';
+import About from './About';
+
+import { preset_data } from './preset_data';
 
 function App() {
   // grid variables:
@@ -43,7 +49,7 @@ function App() {
     if (cellStates[row][col] === 0) {
       return getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
     } else {
-      return getComputedStyle(document.documentElement).getPropertyValue('--cell-fill-color').trim();
+      return getComputedStyle(document.documentElement).getPropertyValue('--title-color').trim();
     }
   }
 
@@ -53,22 +59,30 @@ function App() {
   }
 
   function handleClearGridClick() {
+    pauseAnimation();
+
     let newCellStates = Array(numRows)
       .fill()
-      .map(() => Array(numRows).fill(0));
+      .map(() => Array(numCols).fill(0));
 
     setCellStates(newCellStates);
   }
 
+  function pauseAnimation() {
+    setAnimationButtonText("Play");
+    setIsPlaying(false);
+  }
+
+  function playAnimation() {
+    setAnimationButtonText("Pause");
+    setIsPlaying(true);
+  }
+
   function handleAnimationButtonClick() {
     if (isPlaying) {
-      setAnimationButtonText("Play");
-      setIsPlaying(false);
-
+      pauseAnimation();
     } else {
-      setAnimationButtonText("Pause");
-      setIsPlaying(true);
-
+      playAnimation();
     }
   }
 
@@ -113,9 +127,22 @@ function App() {
     }));
   };
 
+  function generate_preset_on_grid(preset_idx) {
+    // make sure animation is stopped before generating the presets
+    pauseAnimation();
+    // find the dimensions to update values
+    const newNumRows = preset_data[preset_idx].length;
+    const newNumCols = preset_data[preset_idx][0].length;
+
+    setNumRow(newNumRows);
+    setNumCols(newNumCols);
+
+    setCellStates(preset_data[preset_idx]);
+  }
+
   return (
     <div className="App">
-      <h1 className="title">The Game of Life</h1>
+      <h1 className="title">THE GAME OF LIFE</h1>
       <div className="program">
         <div className='grid'>
           <Grid rows={numRows} cols={numCols} determineColor={determineColor} onCellClick={handleCellClick}/>
@@ -136,7 +163,7 @@ function App() {
                 <input className='settings-input' type="number" min={1} max={100} name="height" placeholder="Range: 1-200" onChange={handleGameSettingsChange}/>
               </div>
               <div className='submit-button-container'>
-                <button className='animation-button' type="submit">Submit Values</button>
+                <button className='submit-button' type="submit">Submit Values</button>
               </div>
             </div>
 
@@ -147,6 +174,11 @@ function App() {
             <button className='animation-button' onClick={() => handleClearGridClick()}>Clear Grid</button>
             <button className='animation-button' onClick={() => handleAnimationButtonClick()}>{animationButtonText}</button>
           </div>
+        </div>
+        <div className='icon-buttons-container'>
+          <Information></Information>
+          <Presets generate_preset={generate_preset_on_grid}></Presets>
+          <About></About>
         </div>
       </div>
 
