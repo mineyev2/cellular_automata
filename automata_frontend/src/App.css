@@ -46,6 +46,7 @@ body {
   display:flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   height: auto;
   width: auto;
 }
@@ -55,8 +56,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
-  margin-top: 40px;
 }
 
 .icon-button {
@@ -92,9 +91,10 @@ body {
 
 .settings {
   width: 25%;
+  height: auto;
   display: flex;
   border: 2px solid var(--random4);
-  border-radius: 2.5%/1%;
+  border-radius: 1.5%/1%;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 50px;
@@ -104,7 +104,6 @@ body {
 .form-components-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--cell-border-color);
 }
 
 .settings-input-container {

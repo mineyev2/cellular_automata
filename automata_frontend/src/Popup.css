@@ -6,6 +6,8 @@
     --title-color: #F2F7A1;
 
     --submit-button-color: #C6EBBE;
+
+    --random4: #94B9AF;
   }
 /*--------END OF VARIABLES--------*/
 
@@ -17,7 +19,7 @@
 }
 
 /* Trigger Start */
-.information-button {
+.popup-button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -35,7 +37,7 @@
     text-decoration: none;
 }
   
-.information-button:hover {
+.popup-button:hover {
     background-color: var(--cell-border-color); /* Green */
     color: white;
 }
@@ -43,28 +45,36 @@
 /*---------- HEADER INFORMATION ----------*/
 .modal {
     width:100%;
+    min-height: 100%;
+    height: auto;
     text-align:justify;
     font-size: 18px;
-    background-color: var(--cell-fill-color);
-
-    font-family: "Times New Roman", Times, serif;
+    background-color: var(--random4);
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
 }
 .modal > .header {
-    color: var(--title-color);
+    color: black;
     width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 24px;
     text-align: center;
-    padding: 5px;
+    padding-top: 20px;
+    margin: 0;
 
 }
 .modal > .content {
-    color: white;
+    padding-left: 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    color: black;
     width: 100%;
-    padding: 10px 5px;
 }
 .modal > .content > .tab-indent {
+    padding-right: 80px;
     text-indent: 40px;
+    line-height: 1.5;
+    text-align: left;
 }
 .modal > .actions {
     width: 100%;

@@ -7,7 +7,7 @@ export default () => (
   <Popup
     contentStyle={{width: '40%', height: '90%', overflowY: 'auto', overflowX: 'hidden'}}
     trigger={
-      <button className="information-button">
+      <button className="popup-button">
         <p className='rotated-text'>About</p>
       </button>
     }
@@ -19,7 +19,7 @@ export default () => (
         <button className="close" onClick={close}>
           &times;
         </button>
-        <div className="header">Information Page</div>
+        <div className="header">About Me</div>
         <div className="content">
             <h2>About Me</h2>
             <div className='text-wrap-container'>

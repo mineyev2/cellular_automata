@@ -14,8 +14,8 @@ import { preset_data } from './preset_data';
 
 function App() {
   // grid variables:
-  let [numRows, setNumRow] = useState(8);
-  let [numCols, setNumCols] = useState(8);
+  let [numRows, setNumRow] = useState(15);
+  let [numCols, setNumCols] = useState(15);
   let [speed, setSpeed] = useState(4);
   let [isPlaying, setIsPlaying] = useState(false);
   let [animationButtonText, setAnimationButtonText] = useState("Play");
@@ -103,12 +103,26 @@ function App() {
 
   const handleGameSettingsSubmit = (event) => {
     event.preventDefault();
-    const newSpeed = parseInt(formData.speed);
-    const newNumRows = parseInt(formData.height);
-    const newNumCols = parseInt(formData.width);
-    setSpeed(newSpeed);
-    setNumRow(newNumRows);
-    setNumCols(newNumCols);
+
+    let newSpeed = speed;
+    let newNumRows = numRows;
+    let newNumCols = numCols;
+
+    if (formData.speed !== "") {
+      newSpeed = parseInt(formData.speed);
+      setSpeed(newSpeed);
+    }
+
+    if (formData.height !== "") {
+      newNumRows = parseInt(formData.height);
+      setNumRow(newNumRows);
+    }
+
+    if (formData.width !== "") {
+      newNumCols = parseInt(formData.width);
+      setNumCols(newNumCols);
+    }
+
 
     // When I use numRows instead of newNumRows it doesn't get updated because the value gets updated outside the function I guess
     setCellStates(

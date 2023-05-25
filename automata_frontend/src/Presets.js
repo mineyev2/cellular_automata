@@ -20,7 +20,7 @@ export default function Presets( {generate_preset} ) {
         <Popup
         contentStyle={{width: '40%', height: '90%', overflowX: 'hidden', overflowY: 'auto'}}
         trigger={
-          <button className="information-button">
+          <button className="popup-button">
             <p className='rotated-text'>Presets</p>
           </button>
         }
@@ -32,9 +32,9 @@ export default function Presets( {generate_preset} ) {
             <button className="close" onClick={close}>
               &times;
             </button>
-            <div className="header">Presets</div>
+            <h1 className="header">Presets</h1>
             <div className="presets-container">
-              <p>Click on any of the following presets and get them uploaded onto the grid!</p>
+              <p>Click "Generate" under any of the following presets and get them uploaded onto the grid!</p>
               <Preset name={'Glider'}image={preset1_img} description={preset1_desc} generate={() => generate_preset(0)} close={close}></Preset>
               <Preset name={'Light-weight Spaceship'} image={preset2_img} description={preset2_desc} generate={() => generate_preset(1)} close={close}></Preset>
               <Preset name={'Gosper Glider Gun'} image={preset3_img} description={preset3_desc} generate={() => generate_preset(2)} close={close}></Preset>

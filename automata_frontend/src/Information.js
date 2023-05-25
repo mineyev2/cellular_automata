@@ -6,7 +6,7 @@ export default () => (
   <Popup
     contentStyle={{width: '40%', height: '90%', overflowY: 'auto', overflowX: 'hidden'}}
     trigger={
-      <button className="information-button">
+      <button className="popup-button">
         <p className='rotated-text'>Information</p>
       </button>
     }
@@ -18,14 +18,14 @@ export default () => (
         <button className="close" onClick={close}>
           &times;
         </button>
-        <div className="header">Information Page</div>
+        <h1 className="header">Information Page</h1>
         <div className="content">
           <h2>Quick Start</h2>
-            <p className='tab-indent'>
-              If you're impatient like me or just want to play around, I suggest you press the "Presets" button right below the "Information" button.
-              Here, you can select different shapes and observe how they change through time by pressing the "Play" button on the bottom right.
-              If you ever want to learn how this game actually works, you can always come back and read the nitty-gritty of the implementation below.
-            </p>
+          <p className='tab-indent'>
+            If you're impatient like me or just want to play around, I suggest you press the "Presets" button right below the "Information" button.
+            Here, you can select different shapes and observe how they change through time by pressing the "Play" button on the bottom right.
+            If you ever want to learn how this game actually works, you can always come back and read the nitty-gritty of the implementation below.
+          </p>
           <h2>Introduction</h2>
           <p className='tab-indent'>
             Conway's Game of Life is a cellular automaton devised by mathematician John Horton Conway.
@@ -52,9 +52,9 @@ export default () => (
             To give you the freedom to play around with the website, I have created some settings that you can play with to change the behavior of the game.
             You can see the located to the right of the grid. The functions are as follows:
             <ol>
-              <li>Game Speed (1-100): Denotes the number of frames the game will update, per second</li>
-              <li>Cells per row: Change the dimensions of the grid by increasing the number of cells in each row</li>
-              <li>Cells per column: Change the dimensions of the grid by increasing the number of cells in each column</li>
+              <li>Game Speed (1-100): Number of frames the game will update, per second</li>
+              <li>Cells per row: Number of cells in each row</li>
+              <li>Cells per column: Number of cells in each column</li>
             </ol>
             By clicking the "Submit Values" button, the settings of the website will change according to your inputs.
           </p>
