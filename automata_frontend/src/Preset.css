@@ -39,6 +39,7 @@
 .preset-img {
     max-height: 200px;
     max-width: 90%;
+    border-radius: 15px;
 }
 
 .preset-description {

@@ -90,7 +90,7 @@ body {
 
   padding: 20px;
   border: 2px solid var(--random4);
-  border-radius: 1%;
+  border-radius: 5px;
 }
 
 /*--------START OF SETTINGS SECTION--------*/
@@ -100,7 +100,7 @@ body {
   height: auto;
   display: flex;
   border: 2px solid var(--random4);
-  border-radius: 1.5%/1%;
+  border-radius: 5px;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 50px;
@@ -162,9 +162,12 @@ body {
   width: 125px;
   height: 50px;
   background-color: var(--cell-fill-color);
-  border: 1px solid var(--cell-border-color);
+  border: 2px solid var(--cell-border-color);
   color: white;
   font-size: 1rem;
+
+  margin-right: -2px;
+  margin-bottom: -2px;
   /* make padding a variable? */
   /* padding: 15px 32px; */
   text-align: center;
@@ -180,7 +183,7 @@ body {
   width: 125px;
   height: 50px;
   background-color: var(--random7);
-  border: 1px dashed var(--random7);
+  border: 1px solid var(--random7);
   color: black;
   font-size: 1rem;
   /* make padding a variable? */
@@ -191,7 +194,8 @@ body {
 }
 
 .submit-button:hover {
-  background-color: rgb(149, 84, 84); /* Green */
+  background-color: #a96630; /* Green */
+  border: 1px solid #a96630;
   color: white;
 }
 

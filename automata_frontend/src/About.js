@@ -16,6 +16,16 @@ export default () => (
   >
     {close => (
       <div className="modal">
+        <div className="actions">
+          <button
+            className="action-button"
+            onClick={() => {
+              close();
+            }}
+          >
+            X
+          </button>
+        </div>
         <h1 className="header">About Me</h1>
         <div className="content">
             <div className='text-wrap-container'>
@@ -24,19 +34,8 @@ export default () => (
                     My name is Roman Mineyev, an undergraduate majoring in Math & Computer Science at the University of Illinois at Urbana-Champaign as of May, 2023.
                 </p>
             </div>
-
-
         </div>
-        <div className="actions">
-          <button
-            className="action-button"
-            onClick={() => {
-              close();
-            }}
-          >
-            Close
-          </button>
-        </div>
+        <div className='space'></div>
       </div>
     )}
   </Popup>

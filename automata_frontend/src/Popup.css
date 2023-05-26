@@ -94,6 +94,10 @@
     padding-bottom: 10px;
     margin: auto;
     text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 .modal > .close {
     cursor: pointer;
@@ -117,6 +121,9 @@
     /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+
+    margin-right: 10px;
 }
 
 .action-button:hover {
@@ -152,4 +159,8 @@
     background-color: gray;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.space {
+    height: 40px;
 }
