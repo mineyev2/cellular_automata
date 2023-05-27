@@ -1,16 +1,25 @@
 {
   "files": {
-    "main.css": "/cellular_automata/static/css/main.9d48e918.css",
-    "main.js": "/cellular_automata/static/js/main.f1031dbc.js",
-    "static/js/787.4c262221.chunk.js": "/cellular_automata/static/js/787.4c262221.chunk.js",
-    "static/media/SourceCodePro-ExtraLight.ttf": "/cellular_automata/static/media/SourceCodePro-ExtraLight.5d5959b28ec70fdce76f.ttf",
-    "index.html": "/cellular_automata/index.html",
-    "main.9d48e918.css.map": "/cellular_automata/static/css/main.9d48e918.css.map",
-    "main.f1031dbc.js.map": "/cellular_automata/static/js/main.f1031dbc.js.map",
-    "787.4c262221.chunk.js.map": "/cellular_automata/static/js/787.4c262221.chunk.js.map"
+    "main.css": "/game_of_life/static/css/main.3ea084c5.css",
+    "main.js": "/game_of_life/static/js/main.e6fb3d7c.js",
+    "static/js/787.4c262221.chunk.js": "/game_of_life/static/js/787.4c262221.chunk.js",
+    "static/media/pic1.jpg": "/game_of_life/static/media/pic1.0a43a701259ef9cd66ef.jpg",
+    "static/media/cloverleaf.png": "/game_of_life/static/media/cloverleaf.cbc07131bb267ace7ae5.png",
+    "static/media/middle-weight-spaceship.png": "/game_of_life/static/media/middle-weight-spaceship.d06a1361bc138b06b21d.png",
+    "static/media/SourceCodePro-ExtraLight.ttf": "/game_of_life/static/media/SourceCodePro-ExtraLight.5d5959b28ec70fdce76f.ttf",
+    "static/media/heavy-weight-spaceship.png": "/game_of_life/static/media/heavy-weight-spaceship.5047c042c5ab6a1c8cd7.png",
+    "static/media/light-weight-spaceship2.png": "/game_of_life/static/media/light-weight-spaceship2.7e6de5f022624ec52a96.png",
+    "static/media/hammerhead-spaceship.png": "/game_of_life/static/media/hammerhead-spaceship.d81e4c5a39366c3c0169.png",
+    "static/media/pentadecathlon.png": "/game_of_life/static/media/pentadecathlon.39727cdd934617ef32ca.png",
+    "static/media/glider2.png": "/game_of_life/static/media/glider2.9fa2c28985af249bf584.png",
+    "static/media/gosper-glider-gun2.png": "/game_of_life/static/media/gosper-glider-gun2.b315c680a27c47d8812c.png",
+    "index.html": "/game_of_life/index.html",
+    "main.3ea084c5.css.map": "/game_of_life/static/css/main.3ea084c5.css.map",
+    "main.e6fb3d7c.js.map": "/game_of_life/static/js/main.e6fb3d7c.js.map",
+    "787.4c262221.chunk.js.map": "/game_of_life/static/js/787.4c262221.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d48e918.css",
-    "static/js/main.f1031dbc.js"
+    "static/css/main.3ea084c5.css",
+    "static/js/main.e6fb3d7c.js"
   ]
 }
